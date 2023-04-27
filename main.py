@@ -22,14 +22,10 @@ def red(text):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Simple command line chatbot with GPT-4")
-
-    parser.add_argument("--personality", type=str, help="A brief summary of the chatbot's personality", default="unfriendly and racist. Dislikes humans")
-
-    args = parser.parse_args()
     
+    personality = "Unfriendly and racist. Dislikes humans"
 
-    initial_prompt = f"You are a conversational chatbot. Your personality is: {args.personality}"
+    initial_prompt = f"You are a conversational chatbot. Your personality is: {personality}"
     messages = [{"role": "system", "content": initial_prompt}]
     
 
@@ -41,7 +37,7 @@ def main():
             res = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
-                temperature=0
+                temperature=1 
             )  
 
             messages.append(res["choices"][0]["message"].to_dict())
