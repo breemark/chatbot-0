@@ -14,6 +14,9 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
+# Create a .env file in the root directory and define the 'OPENAI_API_KEY' in it
+touch .env
+
 # Run the chatbot
 python main.py
 ```
